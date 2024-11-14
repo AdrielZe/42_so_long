@@ -11,27 +11,27 @@ void	render_blocks(t_data *data)
 	// Left column
 	while (j < WINDOW_HEIGHT)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->xpm_img.mlx_xpm_img, 0, j);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, 0, j);
 		j += 32;
 	}
 	j = 0;
 	// Right column
 	while (j < WINDOW_HEIGHT)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->xpm_img.mlx_xpm_img, 768, j);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, 768, j);
 		j += 32;
 	}
 	// Upper row
 	while (i < WINDOW_WIDTH)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->xpm_img.mlx_xpm_img, i, 0);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, i, 0);
 		i += 32;
 	}
 	i = 0;
 	// Lower row
 	while (i < WINDOW_WIDTH)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->xpm_img.mlx_xpm_img, i, 368);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, i, 368);
 		i += 32;
 	}
 }

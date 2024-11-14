@@ -24,10 +24,10 @@ int	main(void)
 	
 	//Set up image
 	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
-	data.xpm_img.mlx_xpm_img = mlx_xpm_file_to_image(data.mlx_ptr, "./resources/map/grass_block_32.xpm", &data.xpm_img.width, &data.xpm_img.height);
-	if(!data.xpm_img.mlx_xpm_img)
+	data.wall.wall_ptr = mlx_xpm_file_to_image(data.mlx_ptr, "./resources/map/grass_block_32.xpm", &data.wall.width, &data.wall.height);
+	if(!data.wall.wall_ptr)
 	{
-		free(data.xpm_img.mlx_xpm_img);
+		free(data.wall.wall_ptr);
 		return(MLX_ERROR);
 	}
 
@@ -42,7 +42,7 @@ int	main(void)
 	//render(&data);
 
 	// Destroy displays to avoid memory leaks ( the display is the connexion identifier used  to connect with the X server)
-	mlx_destroy_image(data.mlx_ptr, data.xpm_img.mlx_xpm_img);
+	mlx_destroy_image(data.mlx_ptr, data.wall.wall_ptr);
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr); 
 

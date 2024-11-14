@@ -15,16 +15,16 @@
 
 
 
-typedef struct s_xpm_img
+typedef struct s_wall
 {
-	void	*mlx_xpm_img;
+	void	*wall_ptr;
 	char	*addr;
 	int	bpp;
 	int	line_len;
 	int	endian;
 	int	width;
 	int	height;
-}	t_xpm_img;
+}	t_wall;
 
 typedef struct s_img
 {
@@ -40,7 +40,7 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	img;
-	t_xpm_img	xpm_img;
+	t_wall	wall;
 }	t_data;
 
 void	render_blocks(t_data *data);
@@ -49,7 +49,6 @@ int	handle_no_event(void	*data);
 void	img_pix_put(t_img *img, int x, int y, int color);
 int	render(t_data *data);
 int	handle_keypress(int keysym, t_data *data);
-void	img_pix_put(t_img *img, int x, int y, int color);
 int	handle_no_event(void	*data);
 
 
