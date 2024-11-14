@@ -12,6 +12,7 @@
 # define WINDOW_HEIGHT 400
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
+# define WALL_SIZE 32
 
 
 
