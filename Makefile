@@ -6,12 +6,12 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/11/18 15:56:45 by asilveir         ###   ########.fr        #
+#    Updated: 2024/11/18 18:49:35 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRC = main.c handle_events.c manage_movements.c render_game.c render_map.c render_character.c
+SRC = main.c handle_events.c manage_movements.c render_game.c render_map.c render_character.c render_background.c
 OBJ = $(SRC:.c=.o)
 CC = clang
 //CFLAGS = -Wall -Wextra -Werror

@@ -8,14 +8,23 @@
 #include <stdio.h>
 
 
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 400
+# define WINDOW_WIDTH 1800
+# define WINDOW_HEIGHT 900
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
 # define WALL_SIZE 32
 
+typedef struct s_background
+{
+	void *background_ptr;
+	char *addr;
+	int bpp;
+	int endian;
+	int width;
+	int heigth;
+}	t_background;	
 
-typedef struct s_charater
+typedef struct s_character
 {
 	void	*character_ptr;
 	char	*addr;
@@ -52,6 +61,7 @@ typedef struct s_game
 	t_img	img;
 	t_wall	wall;
 	t_character character;
+	t_background background;
 }	t_game;
 
 int	render_blocks(t_game *game);
@@ -62,7 +72,9 @@ int	render(t_game *game);
 int	handle_keypress(int keysym, t_game *game);
 int	handle_no_event(void	*game);
 void	render_wall_tile(t_game *game, int x, int y);
-void	render_background(t_img *img, int color);
+int	render_background(t_game *game, char **map);
+int	handle_move_left(t_game *game, char **map);
+int	render_background_position(t_game *game, int x, int y);
 
 
 
