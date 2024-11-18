@@ -15,6 +15,15 @@
 # define WALL_SIZE 32
 
 
+typedef struct s_charater
+{
+	void	*character_ptr;
+	char	*addr;
+	int	bpp;
+	int	endian;
+	int	width;
+	int	height;
+}	t_character;
 
 typedef struct s_wall
 {
@@ -36,21 +45,24 @@ typedef struct s_img
 	int	endian;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_game
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	img;
 	t_wall	wall;
-}	t_data;
+	t_character character;
+}	t_game;
 
-void	render_blocks(t_data *data);
-void	render_background(t_img *img, int color);
-int	handle_no_event(void	*data);
+int	render_blocks(t_game *game);
+int	handle_no_event(void	*game);
 void	img_pix_put(t_img *img, int x, int y, int color);
-int	render(t_data *data);
-int	handle_keypress(int keysym, t_data *data);
-int	handle_no_event(void	*data);
+void	render_character(t_game *game, int x, int y);
+int	render(t_game *game);
+int	handle_keypress(int keysym, t_game *game);
+int	handle_no_event(void	*game);
+void	render_wall_tile(t_game *game, int x, int y);
+void	render_background(t_img *img, int color);
 
 
 

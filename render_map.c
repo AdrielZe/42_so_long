@@ -5,53 +5,19 @@ char	*map[] =
 	"1111111111111111111111111",
 	"1000000000000000000000001",
 	"1000000000000000000000001",
+	"1000001110000011100000001",
+	"1000001110000011100000001",
 	"1000000000000000000000001",
-	"1000000000100010000000001",
-	"1000000000000000000000001",
-	"1000000000000000000000001",
-	"1000000000000100000000001",
-	"1000000000000100000000001",
+	"1000000000000000000009001",
+	"1000001110000011100000001",
+	"1000001110000011100000001",
 	"1000000000000000000000001",
 	"1000000000000000000000001",
 	"1111111111111111111111111",
 	NULL
 };
 
-void	render_blocks(t_data *data)
-{
-	int	i;
-	int	j;
 
-	i = 0;
-	j = 0;
-
-	// Left column
-	while (j < WINDOW_HEIGHT)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, 0, j);
-		j += 32;
-	}
-	j = 0;
-	// Right column
-	while (j < WINDOW_HEIGHT)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, 768, j);
-		j += 32;
-	}
-	// Upper row
-	while (i < WINDOW_WIDTH)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, i, 0);
-		i += 32;
-	}
-	i = 0;
-	// Lower row
-	while (i < WINDOW_WIDTH)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, i, 368);
-		i += 32;
-	}
-}
 
 void	render_background(t_img *img, int color)
 {
@@ -70,44 +36,47 @@ void	render_background(t_img *img, int color)
     }
 }
 
-void render_wall_tile(t_data *data, int x, int y)
+void	render_wall_tile(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall.wall_ptr, x * WALL_SIZE, y * WALL_SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.wall_ptr, x * WALL_SIZE, y * WALL_SIZE);
 }
 
-void	render_map(t_data *data, char **map)
+
+int	render_map(t_game *game, char **map)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while(map[i])
+	while(map[j]) 
 	{
-		j = 0;
-		while(map[j])
+		i = 0;
+		while (map[j][i])
 		{
-			if (map[i][j] == '1')
+			if (map[j][i] == '1')
 			{
-				printf("achou   -- ");
-				render_wall_tile(data, i, j);
+				render_wall_tile(game, i, j);
 			} 
-			j++;
+			else if (map[j][i] == '9')
+			{
+				render_character(game, i, j);
+			} 
+			i++;
 		}
-		i++;
+		j++;
 	}
-}
 
-int	render(t_data *data)
+	return (0);
+}
+int	render(t_game *game)
 {
-    if (data->win_ptr == NULL)
+    if (game->win_ptr == NULL)
         return (1);
 
-    render_background(&data->img, WHITE_PIXEL);
-    mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
-    render_map(data, map);
-       
-    render_blocks(data);
+   render_background(&game->img, WHITE_PIXEL);
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.mlx_img, 0, 0);
+    render_map(game, map);       
 
     return (0);
 }

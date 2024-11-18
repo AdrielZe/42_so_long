@@ -1,8 +1,8 @@
 #include "./headers/main.h"
 
-int	handle_no_event(void	*data)
+int	handle_no_event(void	*game)
 {
-	if(!data)
+	if(!game)
 		return(0);
 	return(0);
 }
