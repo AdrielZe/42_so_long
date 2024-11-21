@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/21 00:50:40 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:59:23 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	handle_move_right(t_game *game, char **map)
 		{
 			if (map[j][i] == 'P')
 			{
-				if (map[j][i + 1] != '1' && map[j + 1][i + 1] != '1')
+				if (map[j][i + 2] != '1' && map[j + 1][i + 2] != '1')
 				{
 					map[j][i] = '0';
 					handle_background_left(game, i + 1, j, map);
@@ -82,7 +82,7 @@ int	handle_move_up(t_game *game, char **map)
 		{
 			if (map[j][i] == 'P')
 			{
-				if (map[j - 1][i] != '1')
+				if (map[j - 1][i] != '1' && map[j - 1][i + 1] != '1')
 				{
 					map[j][i] = '0';
 					handle_background_down(game, i, j - 1);
@@ -111,7 +111,7 @@ int	handle_move_down(t_game *game, char **map)
 		{
 			if (map[j][i] == 'P')
 			{
-				if (map[j + 2][i] != '1')
+				if (map[j + 2][i] != '1' && map[j + 2][i + 1] != '1')
 				{
 					map[j][i] = '0';
 					handle_background_up(game, i, j + 2, map);
