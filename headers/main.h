@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 18:41:55 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 21:06:35 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ int		handle_move_right(t_game *game, char **map);
 int		handle_move_up(t_game *game, char **map);
 int		handle_move_down(t_game *game, char **map);
 int		handle_background_right(t_game *game, int i, int j, char **map);
-int		handle_background_left(t_game *game, int i, int j);
+int		handle_background_left(t_game *game, int i, int j, char **map);
 int		handle_background_down(t_game *game, int i, int j);
-int		handle_background_up(t_game *game, int i, int j);
+int		handle_background_up(t_game *game, int i, int j, char **map);
 
 // Map
 char		**init_map();
