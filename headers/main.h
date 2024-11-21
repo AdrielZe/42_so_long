@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 21:06:35 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:32:29 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int		handle_background_down(t_game *game, int i, int j);
 int		handle_background_up(t_game *game, int i, int j, char **map);
 
 // Map
-char		**init_map();
-void free_map(char **map);
+char	**init_map(void);
+void	free_map(char **map);
 
 #endif

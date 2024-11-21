@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:20:56 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 18:02:52 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:26:02 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,3 @@ int	handle_keypress(int keysym, t_game *game)
 	}
 	return (0);
 }
-
-

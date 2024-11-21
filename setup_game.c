@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:35:40 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 21:46:07 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:24:04 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ int	setup_game(t_game *game)
 		return (MLX_ERROR);
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);
-	game->img.addr.
 	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:42:31 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/19 19:02:33 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:34:05 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/main.h"
-
 
 void	render_wall_tile(t_game *game, int x, int y)
 {

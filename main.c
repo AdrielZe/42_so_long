@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 21:25:55 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:30:39 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ char	*g_map1[] =
 	NULL
 };
 
-
 int	main(void)
 {
 	t_game	game;
-	char **map;
-	int i;
-	int j;
+	char	**map;
+	int		i;
+	int		j;
 
 	map = init_map(g_map1);
 	game.map.current_map = map;

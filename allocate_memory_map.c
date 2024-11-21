@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:37:44 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/19 19:02:58 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:25:47 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	count_rows(char **map)
 	int	i;
 
 	i = 0;
-	while(map[i])
+	while (map[i])
 		i++;
 	return (i);
 }
 
 char	**init_map(char **original_map)
 {
-	int rows;
-	int	i;
-	char **map_copy;
+	int		rows;
+	int		i;
+	char	**map_copy;
 
 	i = 0;
 	rows = count_rows(original_map);
@@ -38,7 +38,7 @@ char	**init_map(char **original_map)
 		map_copy[i] = ft_strdup(original_map[i]);
 		if (!map_copy[i])
 		{
-			while(i--)
+			while (i--)
 				free(map_copy[i]);
 			return (NULL);
 		}
@@ -48,7 +48,7 @@ char	**init_map(char **original_map)
 	return (map_copy);
 }
 
-void free_map(char **map)
+void	free_map(char **map)
 {
 	int	i;
 
