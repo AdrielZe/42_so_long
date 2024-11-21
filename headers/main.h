@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 22:32:29 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 23:36:49 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ typedef struct s_map
 	char	**current_map;
 }	t_map;	
 
+typedef struct s_collectible
+{
+	void	*collectible_ptr;
+	char	*addr;
+	int	bpp;
+	int	endian;
+	int	width;
+	int	height;
+}	t_collectible;
+
 typedef struct s_background
 {
 	void	*background_ptr;
@@ -40,6 +50,7 @@ typedef struct s_background
 	int		width;
 	int		heigth;
 }	t_background;	
+
 
 typedef struct s_character
 {
@@ -80,6 +91,7 @@ typedef struct s_game
 	t_wall			wall;
 	t_character		character;
 	t_map			map;
+	t_collectible		collectible;
 }	t_game;
 
 // Renderization
@@ -87,6 +99,7 @@ int		setup_game(t_game *game);
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	render_character(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
+void	render_collectible(t_game *game, int x, int y);
 int		render_background(t_game *game, char **map);
 int		render_background_position(t_game *game, int x, int y);
 int		render_blocks(t_game *game);
@@ -107,7 +120,7 @@ int		handle_background_down(t_game *game, int i, int j);
 int		handle_background_up(t_game *game, int i, int j, char **map);
 
 // Map
-char	**init_map(void);
+char	**init_map();
 void	free_map(char **map);
 
 #endif

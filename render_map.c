@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:42:31 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 22:34:05 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/20 23:41:39 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ int	render_map(t_game *game, char **map)
 		while (map[j][i])
 		{
 			if (map[j][i] == '1')
-			{
 				render_wall_tile(game, i, j);
-			}
-			else if (map[j][i] == '9')
-			{
+			else if (map[j][i] == 'P')
 				render_character(game, i, j);
-			}
+			else if (map[j][i] == 'C')
+				render_collectible(game, i, j);
 			i++;
 		}
 		j++;
