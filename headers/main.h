@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/21 19:45:38 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/22 03:52:27 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,16 @@ typedef struct s_map
 	char	**current_map;
 }	t_map;	
 
-// typedef struct s_animation
-// {
-// 	void	*frame_ptr;
-// 	struct s_animation	*next;
-// }	t_animation;
+typedef struct s_door
+{
+	void	*door_ptr;
+	char	*addr;
+	int		bpp;
+	int		direction;
+	int		endian;
+	int		width;
+	int		height;
+}	t_door;
 
 typedef struct s_collectible
 {
@@ -62,13 +67,8 @@ typedef struct s_character
 {
 	void	*character_ptr;
 	char	*addr;
-	// t_animation	left_animation;
-	// t_animation	right_animation;
-	// t_animation	up_animation;
-	// t_animation	down_animation;
-	// int	current_frame;
-	// int	direction;
 	int		bpp;
+	int		direction;
 	int		endian;
 	int		width;
 	int		height;
@@ -104,12 +104,14 @@ typedef struct s_game
 	t_character		character;
 	t_map			map;
 	t_collectible		collectible;
+	t_door			door;
 }	t_game;
 
 // Renderization
 int		setup_game(t_game *game);
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	render_character(t_game *game, int x, int y);
+void	render_character_to_right(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
 void	render_collectible(t_game *game, int x, int y);
 int		render_background(t_game *game, char **map);

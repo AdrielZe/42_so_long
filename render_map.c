@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:42:31 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 23:41:39 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/22 03:53:57 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	render_map(t_game *game, char **map)
 				render_character(game, i, j);
 			else if (map[j][i] == 'C')
 				render_collectible(game, i, j);
+			else if (map[j][i] == 'E')
+				render_door(game, i, j);
 			i++;
 		}
 		j++;
