@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 18:16:26 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:50:34 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	render_character_to_left(t_game *game, int x, int y);
 void	render_character_to_right(t_game *game, int x, int y);
 void	render_character_to_up(t_game *game, int x, int y);
 void	render_character_to_down(t_game *game, int x, int y);
+int	render_unlocked_door(t_game *game);
 int		render_background(t_game *game, char **map);
 int		render_background_position(t_game *game, int x, int y);
 int		render_blocks(t_game *game);

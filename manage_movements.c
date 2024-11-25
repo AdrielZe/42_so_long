@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 18:38:10 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:30:08 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,11 @@ int	handle_move_right(t_game *game, char **map)
 					map[j][i + 1] = 'P';
 					if(map[j + 1][i + 2] == 'C')
 					{
-						printf("ok");
 						map[j + 1][i + 2] = '0';	
+					};
+					if(map[j][i + 2] == 'C')
+					{
+						map[j][i + 2] = '0';	
 					};
 					return (0);
 				}
@@ -130,6 +133,14 @@ int	handle_move_down(t_game *game, char **map)
 					handle_background_up(game, i, j + 2, map);
 					render_character_to_down(game, i, j + 1);
 					map[j + 1][i] = 'P';
+					if(map[j + 2][i + 1] == 'C')
+					{
+						map[j + 2][i + 1] = '0';	
+					};
+					if(map[j + 2][i] == 'C')
+					{
+						map[j + 2][i] = '0';	
+					};
 					return (0);
 				}
 			}

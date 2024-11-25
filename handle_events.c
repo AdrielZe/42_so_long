@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:50:32 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 18:33:48 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:50:12 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ int	check_collectibles(t_game *game)
 		}
 		j++;
 	}
-	game->door.door_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-		"./resources/map/unlocked_door_96.xpm",
-		&game->wall.width, &game->wall.height);
-	render_door(game, 10, 10);
+	render_unlocked_door(game);
 	return (0);
 }
