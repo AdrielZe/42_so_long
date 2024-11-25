@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/21 23:16:24 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:38:10 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	handle_move_left(t_game *game, char **map)
 					handle_background_right(game, i - 1, j, map);
 					render_character_to_left(game, i - 1, j);
 					map[j][i - 1] = 'P';
+					if(map[j + 1][i - 1] == 'C')
+					{
+						map[j + 1][i - 1] = '0';	
+					};
 					return (0);
 				}
 			}
@@ -60,6 +64,11 @@ int	handle_move_right(t_game *game, char **map)
 					handle_background_left(game, i + 1, j, map);
 					render_character_to_right(game, i + 1, j);
 					map[j][i + 1] = 'P';
+					if(map[j + 1][i + 2] == 'C')
+					{
+						printf("ok");
+						map[j + 1][i + 2] = '0';	
+					};
 					return (0);
 				}
 			}
@@ -88,6 +97,10 @@ int	handle_move_up(t_game *game, char **map)
 					handle_background_down(game, i, j - 1);
 					render_character_to_up(game, i, j - 1);
 					map[j - 1][i] = 'P';
+					if(map[j - 1][i + 1] == 'C')
+					{
+						map[j - 1][i + 1] = '0';	
+					};
 					return (0);
 				}
 			}

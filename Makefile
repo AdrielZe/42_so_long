@@ -6,7 +6,7 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/11/22 03:54:03 by asilveir         ###   ########.fr        #
+#    Updated: 2024/11/25 18:13:15 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(SRC:.c=.o)
 
 # Compilador e flags
 CC = clang
-//CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror -Ilibft
 
 # Diretórios da libft
 LIBFT_DIR = ./libft

@@ -6,12 +6,13 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/22 03:52:27 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:16:26 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
+
 
 # include <stdlib.h>
 # include <mlx.h>
@@ -114,10 +115,16 @@ void	render_character(t_game *game, int x, int y);
 void	render_character_to_right(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
 void	render_collectible(t_game *game, int x, int y);
+void	render_door(t_game *game, int x, int y);
+void	render_character_to_left(t_game *game, int x, int y);
+void	render_character_to_right(t_game *game, int x, int y);
+void	render_character_to_up(t_game *game, int x, int y);
+void	render_character_to_down(t_game *game, int x, int y);
 int		render_background(t_game *game, char **map);
 int		render_background_position(t_game *game, int x, int y);
 int		render_blocks(t_game *game);
 int		render(t_game *game, char **map);
+int		check_collectibles(t_game *game);
 
 // Hooks
 int		handle_no_event(void	*game);
