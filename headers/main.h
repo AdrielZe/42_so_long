@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 19:50:34 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:19:15 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
 # define WALL_SIZE 32
+
+static int door_unlocked = 0;
 
 typedef struct s_map
 {

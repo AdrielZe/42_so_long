@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 20:30:08 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:29:06 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ int	handle_move_right(t_game *game, char **map)
 						map[j][i + 2] = '0';	
 					};
 					return (0);
+				}
+				if (map[j][i + 2] == 'E')
+				{
+					printf("sair");
 				}
 			}
 			i++;
