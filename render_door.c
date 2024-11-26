@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 23:18:41 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 22:19:10 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:39:46 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	render_unlocked_door(t_game *game)
 					mlx_destroy_image(game->mlx_ptr, game->door.door_ptr);
 					game->door.door_ptr = NULL; 
 					game->door.door_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-						"./resources/map/unlocked_door_96.xpm",
+						"./resources/map/unlocked_door_48.xpm",
 						&game->wall.width, &game->wall.height);
 					render_door(game, i, j);
 					door_unlocked = 1;

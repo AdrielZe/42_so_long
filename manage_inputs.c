@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:20:56 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/20 22:26:02 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:25:49 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ int	handle_keypress(int keysym, t_game *game)
 	}
 	if (keysym == XK_Left)
 	{
-		handle_move_left(game, game->map.current_map);
+		handle_move_left(game);
 	}
 	if (keysym == XK_Right)
 	{
-		handle_move_right(game, game->map.current_map);
+		handle_move_right(game);
 	}
 	if (keysym == XK_Up)
 	{
-		handle_move_up(game, game->map.current_map);
+		handle_move_up(game);
 	}
 	if (keysym == XK_Down)
 	{
-		handle_move_down(game, game->map.current_map);
+		handle_move_down(game);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:35:40 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/22 04:34:28 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:09:53 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	setup_game(t_game *game)
 			"./resources/map/collectible_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->door.door_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/map/locked_door_96.xpm",
+			"./resources/map/locked_door_48.xpm",
 			&game->wall.width, &game->wall.height);
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);

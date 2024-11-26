@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 22:19:15 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:21:42 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,10 +134,10 @@ int		handle_no_event(void	*game);
 int		handle_keypress(int keysym, t_game *game);
 
 // Inputs
-int		handle_move_left(t_game *game, char **map);
-int		handle_move_right(t_game *game, char **map);
-int		handle_move_up(t_game *game, char **map);
-int		handle_move_down(t_game *game, char **map);
+int		handle_move_left(t_game *game);
+int		handle_move_right(t_game *game);
+int		handle_move_up(t_game *game);
+int		handle_move_down(t_game *game);
 int		handle_background_right(t_game *game, int i, int j, char **map);
 int		handle_background_left(t_game *game, int i, int j, char **map);
 int		handle_background_down(t_game *game, int i, int j);

@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:50:32 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 19:50:12 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:12:35 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	check_collectibles(t_game *game)
 		{
 			if (game->map.current_map[j][i] == 'C')
 			{
-				// printf("entrou");
 				return (1);
 			}
 			i++;
