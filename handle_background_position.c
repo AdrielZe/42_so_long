@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:26:25 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/21 18:15:35 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:44:07 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	handle_background_left(t_game *game, int i, int j, char **map)
 	return (1);
 }
 
-int	handle_background_down(t_game *game, int i, int j)
+int	handle_background_down(t_game *game, int row, int column)
 {
-	render_background_position(game, i, j + 1);
-	render_background_position(game, i, j + 2);
-	render_background_position(game, i + 1, j + 2);
-	return (1);
+	render_background_position(game, row, column + 1);
+	render_background_position(game, row, column + 2);
+	render_background_position(game, row + 1, column + 2);
+	return (0);
 }
 
 int	handle_background_up(t_game *game, int i, int j, char **map)

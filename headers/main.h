@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/26 17:21:42 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:55:03 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_door
 {
 	void	*door_ptr;
 	char	*addr;
+	char	*location;
 	int		bpp;
 	int		direction;
 	int		endian;

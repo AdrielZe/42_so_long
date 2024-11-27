@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:49:18 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/19 16:10:43 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:43:02 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	render_background(t_game *game, char **map)
 	return (0);
 }
 
-int	render_background_position(t_game *game, int x, int y)
+int	render_background_position(t_game *game, int row, int column)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->background.background_ptr,
-		x * WALL_SIZE, y * WALL_SIZE);
+		row * WALL_SIZE, column * WALL_SIZE);
 	return (0);
 }
