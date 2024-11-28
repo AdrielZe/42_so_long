@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/26 19:55:03 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:29:31 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,10 @@ int		handle_background_up(t_game *game, int i, int j, char **map);
 // Map
 char	**init_map();
 void	free_map(char **map);
+
+// Map utils
+int	rows_of_map_exist(t_game *game, int row_number);
+int	current_row_exists(t_game *game, int row_number, int column_number);
+int	found_character_position(t_game *game, int row_number, int column_number);
 
 #endif

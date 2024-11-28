@@ -6,7 +6,7 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/11/25 18:13:15 by asilveir         ###   ########.fr        #
+#    Updated: 2024/11/27 21:29:42 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = so_long
 SRC = main.c setup_game.c handle_events.c manage_inputs.c render_game.c \
 	render_map.c render_character.c render_background.c allocate_memory_map.c \
 	handle_background_position.c manage_movements.c render_collectible.c \
-	render_door.c
+	render_door.c map_utils.c
 
 OBJ = $(SRC:.c=.o)
 
