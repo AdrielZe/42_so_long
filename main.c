@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/27 21:30:23 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/27 23:48:08 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,8 @@ int	main(void)
 {
 	t_game	game;
 	char	**map;
-	int		i;
-	int		j;
-
 	map = init_map(g_map1);
 	game.map.current_map = map;
-	i = 0;
-	j = 0;
 	setup_game(&game);
 	render(&game, map);
 	mlx_loop_hook(game.mlx_ptr, check_collectibles, &game);

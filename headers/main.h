@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/27 21:29:31 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/27 23:49:20 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,5 +152,20 @@ void	free_map(char **map);
 int	rows_of_map_exist(t_game *game, int row_number);
 int	current_row_exists(t_game *game, int row_number, int column_number);
 int	found_character_position(t_game *game, int row_number, int column_number);
+
+int	move_and_render_player_up(t_game *game, int row, int column);
+int	render_if_player_can_move_up_when_door_is_locked(t_game *game, int row, int column);
+int	render_if_player_can_move_up_when_door_is_unlocked(t_game *game, int row, int column);
+int    move_and_render_player_down(t_game *game, int row, int column);
+int	move_down_door_locked(t_game *game, int row, int column);
+int	move_down_door_unlocked(t_game *game, int row, int column);
+int    move_and_render_player_right(t_game *game, int row, int column);
+int	render_if_player_can_move_right_when_door_is_locked(t_game *game, int row, int column);
+int	render_if_player_can_move_right_when_door_is_unlocked(t_game *game, int row, int column);
+int    move_and_render_player_left(t_game *game, int row, int column);
+int	move_left_door_locked(t_game *game, int row, int column);
+int	move_left_door_unlocked(t_game *game, int row, int column);
+int	render_if_player_can_move_left_when_door_is_unlocked(t_game *game, int row, int column);
+
 
 #endif

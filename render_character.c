@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:48:48 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/22 01:18:02 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:54:01 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	render_character_to_right(t_game *game, int x, int y)
 	static void	*frames[2] = {NULL, NULL};
 	static int	current_frame = 0;
 
-	// Inicializa frames apenas na primeira execução
 	if (!frames[0])
 	{
 		frames[0] = mlx_xpm_file_to_image(game->mlx_ptr,
