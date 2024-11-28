@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:28:05 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/27 21:28:44 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:02:34 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ int	current_row_exists(t_game *game, int row_number, int column_number)
 int	found_character_position(t_game *game, int row_number, int column_number)
 {
 	if (game->map.current_map[row_number][column_number] == 'P')
+		return (1);
+	return (0);
+}
+
+int	found_door_position(t_game *game, int row_number, int column_number)
+{
+	if (game->map.current_map[row_number][column_number] == 'E')
 		return (1);
 	return (0);
 }

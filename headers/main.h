@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/27 23:49:20 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:04:37 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
 # define WALL_SIZE 32
-
-static int door_unlocked = 0;
 
 typedef struct s_map
 {
@@ -166,6 +164,7 @@ int    move_and_render_player_left(t_game *game, int row, int column);
 int	move_left_door_locked(t_game *game, int row, int column);
 int	move_left_door_unlocked(t_game *game, int row, int column);
 int	render_if_player_can_move_left_when_door_is_unlocked(t_game *game, int row, int column);
+int	found_door_position(t_game *game, int row_number, int column_number);
 
 
 #endif
