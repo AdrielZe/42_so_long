@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_game.c                                      :+:      :+:    :+:   */
+/*   manage_inputs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 16:08:13 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/19 16:10:03 by asilveir         ###   ########.fr       */
+/*   Created: 2024/11/19 15:20:56 by asilveir          #+#    #+#             */
+/*   Updated: 2024/11/29 00:26:30 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/main.h"
 
-void	img_pix_put(t_img *img, int x, int y, int color)
+int	handle_keypress(int keysym, t_game *game)
 {
-	char	*pixel;
-	int		i;
-
-	i = img->bpp - 8;
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	while (i >= 0)
+	if (keysym == XK_Escape)
 	{
-		if (img->endian != 0)
-			*pixel++ = (color >> i) & 0xFF;
-		else
-			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
-		i -= 8;
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	}
+	if (keysym == XK_Left)
+	{
+		process_left_input(game);
+	}
+	if (keysym == XK_Right)
+	{
+		process_right_input(game);
+	}
+	if (keysym == XK_Up)
+	{
+		process_up_input(game);
+	}
+	if (keysym == XK_Down)
+	{
+		process_down_input(game);
+	}
+	return (0);
 }

@@ -6,16 +6,16 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/11/27 22:35:15 by asilveir         ###   ########.fr        #
+#    Updated: 2024/11/29 00:28:50 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 # Fontes
-SRC = main.c setup_game.c handle_events.c manage_inputs.c render_game.c \
+SRC = main.c setup_game.c handle_events.c process_inputs.c \
 	render_map.c render_character.c render_background.c allocate_memory_map.c \
-	handle_background_position.c manage_movements.c render_collectible.c \
+	handle_background_position.c process_movements.c render_collectible.c \
 	render_door.c map_utils.c up_movement.c down_movement.c right_movement.c \
 	left_movement.c
 

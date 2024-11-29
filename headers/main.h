@@ -6,13 +6,12 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/28 00:04:37 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/29 00:32:13 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
-
 
 # include <stdlib.h>
 # include <mlx.h>
@@ -37,31 +36,18 @@ typedef struct s_door
 	void	*door_ptr;
 	char	*addr;
 	char	*location;
-	int		bpp;
-	int		direction;
-	int		endian;
-	int		width;
-	int		height;
 }	t_door;
 
 typedef struct s_collectible
 {
 	void	*collectible_ptr;
 	char	*addr;
-	int	bpp;
-	int	endian;
-	int	width;
-	int	height;
 }	t_collectible;
 
 typedef struct s_background
 {
 	void	*background_ptr;
 	char	*addr;
-	int		bpp;
-	int		endian;
-	int		width;
-	int		heigth;
 }	t_background;	
 
 
@@ -69,11 +55,6 @@ typedef struct s_character
 {
 	void	*character_ptr;
 	char	*addr;
-	int		bpp;
-	int		direction;
-	int		endian;
-	int		width;
-	int		height;
 }	t_character;
 
 typedef struct s_wall
@@ -109,38 +90,52 @@ typedef struct s_game
 	t_door			door;
 }	t_game;
 
-// Renderization
 int		setup_game(t_game *game);
-void	img_pix_put(t_img *img, int x, int y, int color);
+// Renderization
 void	render_character(t_game *game, int x, int y);
-void	render_character_to_right(t_game *game, int x, int y);
-void	render_wall_tile(t_game *game, int x, int y);
-void	render_collectible(t_game *game, int x, int y);
-void	render_door(t_game *game, int x, int y);
-void	render_character_to_left(t_game *game, int x, int y);
-void	render_character_to_right(t_game *game, int x, int y);
-void	render_character_to_up(t_game *game, int x, int y);
-void	render_character_to_down(t_game *game, int x, int y);
+void	alternate_char_animation_right(t_game *game, int x, int y);
+void	alternate_char_animation_left(t_game *game, int x, int y);
+void	alternate_char_animation_up(t_game *game, int x, int y);
+void	alternate_char_animation_down(t_game *game, int x, int y);
+int    move_player_right(t_game *game, int row, int column);
+int    move_player_left(t_game *game, int row, int column);
+int	move_player_up(t_game *game, int row, int column);
+int    move_player_down(t_game *game, int row, int column);
+int		process_left_input(t_game *game);
+int		process_right_input(t_game *game);
+int		process_up_input(t_game *game);
+int		process_down_input(t_game *game);
+int	move_up_door_locked(t_game *game, int row, int column);
+int	move_up_door_unlocked(t_game *game, int row, int column);
+int	move_down_door_locked(t_game *game, int row, int column);
+int	move_down_door_unlocked(t_game *game, int row, int column);
+int	move_right_door_locked(t_game *game, int row, int column);
+int	move_right_door_unlocked(t_game *game, int row, int column);
+int	move_left_door_locked(t_game *game, int row, int column);
+int	move_left_door_unlocked(t_game *game, int row, int column);
+int	render_if_player_can_move_left_when_door_is_unlocked(t_game *game, int row, int column);
+
 int	render_unlocked_door(t_game *game);
-int		render_background(t_game *game, char **map);
+void	render_door(t_game *game, int x, int y);
+void	render_wall_tile(t_game *game, int x, int y);
+int		handle_background_up(t_game *game, int i, int j, char **map);
+
 int		render_background_position(t_game *game, int x, int y);
+int		render_background(t_game *game, char **map);
+int		handle_background_down(t_game *game, int i, int j);
+int		handle_background_right(t_game *game, int i, int j, char **map);
+int		handle_background_left(t_game *game, int i, int j, char **map);
 int		render_blocks(t_game *game);
 int		render(t_game *game, char **map);
-int		check_collectibles(t_game *game);
 
+
+int		check_collectibles(t_game *game);
+void	render_collectible(t_game *game, int x, int y);
 // Hooks
 int		handle_no_event(void	*game);
 int		handle_keypress(int keysym, t_game *game);
 
 // Inputs
-int		handle_move_left(t_game *game);
-int		handle_move_right(t_game *game);
-int		handle_move_up(t_game *game);
-int		handle_move_down(t_game *game);
-int		handle_background_right(t_game *game, int i, int j, char **map);
-int		handle_background_left(t_game *game, int i, int j, char **map);
-int		handle_background_down(t_game *game, int i, int j);
-int		handle_background_up(t_game *game, int i, int j, char **map);
 
 // Map
 char	**init_map();
@@ -151,19 +146,7 @@ int	rows_of_map_exist(t_game *game, int row_number);
 int	current_row_exists(t_game *game, int row_number, int column_number);
 int	found_character_position(t_game *game, int row_number, int column_number);
 
-int	move_and_render_player_up(t_game *game, int row, int column);
-int	render_if_player_can_move_up_when_door_is_locked(t_game *game, int row, int column);
-int	render_if_player_can_move_up_when_door_is_unlocked(t_game *game, int row, int column);
-int    move_and_render_player_down(t_game *game, int row, int column);
-int	move_down_door_locked(t_game *game, int row, int column);
-int	move_down_door_unlocked(t_game *game, int row, int column);
-int    move_and_render_player_right(t_game *game, int row, int column);
-int	render_if_player_can_move_right_when_door_is_locked(t_game *game, int row, int column);
-int	render_if_player_can_move_right_when_door_is_unlocked(t_game *game, int row, int column);
-int    move_and_render_player_left(t_game *game, int row, int column);
-int	move_left_door_locked(t_game *game, int row, int column);
-int	move_left_door_unlocked(t_game *game, int row, int column);
-int	render_if_player_can_move_left_when_door_is_unlocked(t_game *game, int row, int column);
+
 int	found_door_position(t_game *game, int row_number, int column_number);
 
 

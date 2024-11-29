@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/27 23:50:49 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/29 00:27:46 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	door_is_locked(t_game *game)
 {
-	return (ft_strcmp(game->door.location, "./resources/map/locked_door_48.xpm") == 0);
+	return (ft_strcmp(game->door.location,
+			"./resources/map/locked_door_48.xpm") == 0);
 }
-int	handle_move_left(t_game *game)
+
+int	process_left_input(t_game *game)
 {
 	int	i;
 	int	j;
@@ -40,7 +42,7 @@ int	handle_move_left(t_game *game)
 	return (0);
 }
 
-int	handle_move_right(t_game *game)
+int	process_right_input(t_game *game)
 {
 	int	i;
 	int	j;
@@ -54,8 +56,8 @@ int	handle_move_right(t_game *game)
 			if (found_character_position(game, j, i))
 			{
 				if (door_is_locked(game))
- 					return (render_if_player_can_move_right_when_door_is_locked(game, j, i));
-				return render_if_player_can_move_right_when_door_is_unlocked(game, j, i);
+					return (move_right_door_locked(game, j, i));
+				return (move_right_door_unlocked(game, j, i));
 			}
 			i++;
 		}
@@ -63,7 +65,8 @@ int	handle_move_right(t_game *game)
 	}
 	return (0);
 }
-int	handle_move_up(t_game *game)
+
+int	process_up_input(t_game *game)
 {
 	int	i;
 	int	j;
@@ -76,9 +79,9 @@ int	handle_move_up(t_game *game)
 		{
 			if (found_character_position(game, j, i))
 			{
-				if (door_is_locked(game)) 
-					return (render_if_player_can_move_up_when_door_is_locked(game, j, i));
-				return (render_if_player_can_move_up_when_door_is_unlocked(game, j, i));
+				if (door_is_locked(game))
+					return (move_up_door_locked(game, j, i));
+				return (move_up_door_unlocked(game, j, i));
 			}
 			i++;
 		}
@@ -87,8 +90,7 @@ int	handle_move_up(t_game *game)
 	return (0);
 }
 
-
-int	handle_move_down(t_game *game)
+int	process_down_input(t_game *game)
 {
 	int	i;
 	int	j;
@@ -103,7 +105,7 @@ int	handle_move_down(t_game *game)
 			{
 				if (door_is_locked(game))
 					return (move_down_door_locked(game, j, i));
-				return (move_down_door_unlocked(game, j, i));			
+				return (move_down_door_unlocked(game, j, i));
 			}
 			i++;
 		}
