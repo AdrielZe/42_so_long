@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:42:31 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/25 20:41:29 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/29 01:21:48 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	render(t_game *game, char **map)
 		return (1);
 	mlx_put_image_to_window(game->mlx_ptr,
 		game->win_ptr, game->img.mlx_img, 0, 0);
-	render_background(game, map);
+	background_entire_screen_put(game, map);
 	render_map(game, map);
 	return (0);
 }

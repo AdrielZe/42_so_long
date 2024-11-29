@@ -6,13 +6,13 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:49:18 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/26 20:43:02 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/29 01:19:42 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/main.h"
 
-int	render_background(t_game *game, char **map)
+int	background_entire_screen_put(t_game *game, char **map)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ int	render_background(t_game *game, char **map)
 	return (0);
 }
 
-int	render_background_position(t_game *game, int row, int column)
+int	background_specific_position_put(t_game *game, int row, int column)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->background.background_ptr,

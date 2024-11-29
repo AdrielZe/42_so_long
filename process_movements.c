@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_movements.c                                 :+:      :+:    :+:   */
+/*   process_movements.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/29 00:27:46 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/11/29 01:01:03 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ int	process_left_input(t_game *game)
 		while (current_row_exists(game, j, i))
 		{
 			if (found_character_position(game, j, i))
-			{
-				if (door_is_locked(game))
-					return (move_left_door_locked(game, j, i));
-				return (move_left_door_unlocked(game, j, i));
-			}
+				try_move_left(game, j, i);
 			i++;
 		}
 		j++;
@@ -54,11 +50,7 @@ int	process_right_input(t_game *game)
 		while (current_row_exists(game, j, i))
 		{
 			if (found_character_position(game, j, i))
-			{
-				if (door_is_locked(game))
-					return (move_right_door_locked(game, j, i));
-				return (move_right_door_unlocked(game, j, i));
-			}
+				return (try_move_right(game, j, i));
 			i++;
 		}
 		j++;
@@ -78,11 +70,7 @@ int	process_up_input(t_game *game)
 		while (current_row_exists(game, j, i))
 		{
 			if (found_character_position(game, j, i))
-			{
-				if (door_is_locked(game))
-					return (move_up_door_locked(game, j, i));
-				return (move_up_door_unlocked(game, j, i));
-			}
+				try_move_up(game, j, i);
 			i++;
 		}
 		j++;
@@ -102,11 +90,7 @@ int	process_down_input(t_game *game)
 		while (current_row_exists(game, j, i))
 		{
 			if (found_character_position(game, j, i))
-			{
-				if (door_is_locked(game))
-					return (move_down_door_locked(game, j, i));
-				return (move_down_door_unlocked(game, j, i));
-			}
+				return (try_move_down(game, j, i));
 			i++;
 		}
 		j++;
