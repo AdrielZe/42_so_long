@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   import_map.c                                       :+:      :+:    :+:   */
+/*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 03:34:30 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 15:01:12 by asilveir         ###   ########.fr       */
+/*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
+/*   Updated: 2024/12/02 15:20:54 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/main.h"
 
-char **read_map(char *argv)
-{
-	char	**map;
-	char	*line;
-	int	fd;
-	int	i;
-
-	fd = open(argv, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-
-	map = (char **)malloc(sizeof(char *) * 1024);
-	if (!map)
-		return (NULL);
-	i = 0;
-	while ((line = get_next_line(fd)))
+char	**parse_map(char **map, int argc, char **argv)
+{	
+	if (argc < 2)
 	{
-		map[i] = line;
-		i++;
+		write(1, "Map file name is missing!\n", 26);
+		return (NULL);
 	}
-	map[i] = NULL;
-	close(fd);
+	map = read_map(argv[1]);
+	if (!map)
+	{
+		write(1, "Failure reading the map, file name is invalid!\n", 47);
+		return (NULL);
+	}
 	return (map);
 }

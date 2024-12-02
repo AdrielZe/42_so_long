@@ -6,7 +6,7 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/11/29 03:30:16 by asilveir         ###   ########.fr        #
+#    Updated: 2024/12/02 15:24:46 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = so_long.c setup_game.c handle_events.c process_inputs.c \
 	render_map.c render_character.c background_utils.c allocate_memory_map.c \
 	background_utils_2.c process_movements.c render_collectible.c \
 	render_door.c map_utils.c move_up.c move_down.c move_right.c \
-	move_left.c
+	move_left.c import_map.c init_map.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -60,6 +60,6 @@ re: fclean all
 
 # Testar com Valgrind
 valgrind: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) map_1.ber
 
 .PHONY: all clean fclean re valgrind

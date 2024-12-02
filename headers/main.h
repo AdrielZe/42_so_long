@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/29 03:01:11 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:27:34 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 # include <stdio.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
 
 # define WINDOW_WIDTH 1800
@@ -89,6 +90,7 @@ typedef struct s_game
 	t_door			door;
 }	t_game;
 
+char	**parse_map(char **map, int argc, char **argv);
 int		setup_game(t_game *game);
 int		handle_no_event(void	*game);
 int		handle_keypress(int keysym, t_game *game);
@@ -128,5 +130,6 @@ void	render_door(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
 void	render_collectible(t_game *game, int x, int y);
 char	**init_map(char **map);
+char	**read_map(char *argv);
 
 #endif
