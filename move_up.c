@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:08:16 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/29 02:44:04 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:55:17 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ int	try_move_up(t_game *game, int row, int column)
 	if (row < 2)
 		return (0);
 	if (ft_strcmp(game->door.location,
-			"./resources/map/locked_door_48.xpm") == 0)
+			"./resources/map/locked_exit_32.xpm") == 0)
 	{
 		if (game->map.current_map[row - 1][column] != '1' &&
 				game->map.current_map[row - 1][column + 1] != '1' &&
-				game->map.current_map[row - 2][column] != 'E' &&
-				game->map.current_map[row - 2][column + 1] != 'E' &&
-				game->map.current_map[row - 2][column - 1] != 'E')
+				game->map.current_map[row - 1][column] != 'E' &&
+				game->map.current_map[row - 1][column + 1] != 'E')
 			move_player_up(game, row, column);
 		return (0);
 	}

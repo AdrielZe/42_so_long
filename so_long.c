@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 15:27:06 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:59:41 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int	main(int argc, char *argv[])
 {
 	t_game	game;
 	char	**map;
-
 	map = NULL;
+	
 	map = parse_map(map, argc, argv);
-
 	game.map.current_map = map;
 	setup_game(&game);
 	render(&game, map);
@@ -27,7 +26,6 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &game);
 	mlx_loop(game.mlx_ptr);
 	free(map);
-	free_map(map);
 	mlx_destroy_image(game.mlx_ptr, game.door.door_ptr);
 	mlx_destroy_image(game.mlx_ptr, game.collectible.collectible_ptr);
 	mlx_destroy_image(game.mlx_ptr, game.background.background_ptr);
