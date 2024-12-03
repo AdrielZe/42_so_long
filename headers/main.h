@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 23:32:37 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 01:55:59 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
 # define WALL_SIZE 32
+
+extern int number_of_movements;
 
 typedef struct s_map
 {
@@ -129,6 +131,7 @@ void	alternate_char_animation_down(t_game *game, int x, int y);
 void	render_door(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
 void	render_collectible(t_game *game, int x, int y);
+void	print_number_of_movements();
 char	**init_map(char **map);
 char	**read_map(char *argv);
 
@@ -143,4 +146,5 @@ int	search_collectible(char **map);
 int	search_player(char **map);
 int	search_forbidden_character(char **map);
 int	only_one_player(char **map);
+int	only_one_exit(char **map);
 #endif
