@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:30:29 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 18:49:40 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 23:53:28 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,24 @@ int	move_player_left(t_game *game, int row, int column)
 
 int	try_move_left(t_game *game, int row, int column)
 {
+	if (row < 0 || column < 1)
+		return (0);
 	if (ft_strcmp(game->door.location,
 			"./resources/map/locked_exit_32.xpm") == 0)
 	{
 		if (game->map.current_map[row][column - 1] != '1'
 				&& game->map.current_map[row + 1][column - 1] != '1'
 				&& game->map.current_map[row][column - 1] != 'E'
-				// && game->map.current_map[row - 1][column - 2] != 'E'
 				&& game->map.current_map[row + 1][column - 1] != 'E')
 			move_player_left(game, row, column);
 		return (0);
 	}
 	if (game->map.current_map[row][column - 1] != '1'
 		&& game->map.current_map[row + 1][column - 1] != '1')
-		move_player_left(game, row, column);
+		{
+			move_player_left(game, row, column);
+			return (0);
+		}
 	if (game->map.current_map[row][column - 2] == 'E')
 		exit (1);
 	else if (game->map.current_map[row - 1][column - 2] == 'E')

@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 19:06:39 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 23:32:37 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,4 +138,9 @@ int	count_rows(char **map);
 int	search_walls_horizontally(char **map);
 int	search_walls_vertically(char **map);
 int	map_is_surrounded_by_walls(char **map);
+int	search_exit(char **map);
+int	search_collectible(char **map);
+int	search_player(char **map);
+int	search_forbidden_character(char **map);
+int	only_one_player(char **map);
 #endif

@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 19:42:26 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 23:32:21 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ char	**parse_map(char **map, int argc, char **argv)
 	}
 	check_if_map_is_rectangular(map);
 	map_is_surrounded_by_walls(map);
+	search_exit(map);
+	search_collectible(map);
+	search_player(map);
+	search_forbidden_character(map);
+	only_one_player(map);
 	return (map);
 }
 
