@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 15:27:34 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:06:39 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,4 +132,10 @@ void	render_collectible(t_game *game, int x, int y);
 char	**init_map(char **map);
 char	**read_map(char *argv);
 
+// map_validation_utils
+int	check_if_map_is_rectangular(char **map);
+int	count_rows(char **map);
+int	search_walls_horizontally(char **map);
+int	search_walls_vertically(char **map);
+int	map_is_surrounded_by_walls(char **map);
 #endif

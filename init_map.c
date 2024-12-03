@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 17:23:47 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:42:26 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ char	**parse_map(char **map, int argc, char **argv)
 		write(1, "Error\nFailure reading the map, file name is invalid!\n", 52);
 		exit(EXIT_FAILURE);
 	}
+	check_if_map_is_rectangular(map);
+	map_is_surrounded_by_walls(map);
 	return (map);
 }
 
