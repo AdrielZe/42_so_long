@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 23:32:21 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 00:51:42 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char **read_map(char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-
 	map = (char **)malloc(sizeof(char *) * 1024);
 	if (!map)
 		return (NULL);

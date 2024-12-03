@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:11:45 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 19:01:59 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 01:08:47 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ int	try_move_down(t_game *game, int row, int column)
 			move_player_down(game, row, column);
 		return (0);
 	}
-	if (game->map.current_map[row + 2][column] != '1'
-	&& game->map.current_map[row + 2][column + 1] != '1')
-		move_player_down(game, row, column);
 	if (game->map.current_map[row + 2][column] == 'E')
-		exit(1);
-	else if (game->map.current_map[row + 2][column - 1] == 'E')
 		exit(1);
 	else if (game->map.current_map[row + 2][column + 1] == 'E')
 		exit(1);
+	if (game->map.current_map[row + 2][column] != '1'
+	&& game->map.current_map[row + 2][column + 1] != '1')
+		move_player_down(game, row, column);
 	return (0);
 }
