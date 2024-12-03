@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:11:45 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 01:58:27 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:47:18 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	print_number_of_movements(void)
 {
 	char	*number_of_mvs;
-	number_of_movements++;
-	number_of_mvs = ft_itoa(number_of_movements);
 
+	g_number_of_movements++;
+	number_of_mvs = ft_itoa(g_number_of_movements);
 	write(1, "Movements: ", 11);
 	write(1, number_of_mvs, ft_strlen(number_of_mvs));
 	write(1, "\n", 1);

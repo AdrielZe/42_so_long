@@ -6,12 +6,14 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:20:56 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 01:43:56 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:39:33 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./headers/main.h"
-int number_of_movements = 0;
+
+int	g_number_of_movements = 0;
+
 int	handle_keypress(int keysym, t_game *game)
 {
 	if (keysym == XK_Escape)

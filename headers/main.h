@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 01:55:59 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:57:15 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define MLX_ERROR 1
 # define WALL_SIZE 32
 
-extern int number_of_movements;
+extern int	g_number_of_movements;
 
 typedef struct s_map
 {
@@ -122,6 +122,17 @@ int		put_background_right(t_game *game, int i, int j, char **map);
 int		put_background_left(t_game *game, int i, int j, char **map);
 int		background_specific_position_put(t_game *game, int x, int y);
 int		background_entire_screen_put(t_game *game, char **map);
+int		check_if_map_is_rectangular(char **map);
+int		count_rows(char **map);
+int		search_walls_horizontally(char **map);
+int		search_walls_vertically(char **map);
+int		map_is_surrounded_by_walls(char **map);
+int		search_exit(char **map);
+int		search_collectible(char **map);
+int		search_player(char **map);
+int		search_forbidden_character(char **map);
+int		only_one_player(char **map);
+int		only_one_exit(char **map);
 void	free_map(char **map);
 void	render_character(t_game *game, int x, int y);
 void	alternate_char_animation_right(t_game *game, int x, int y);
@@ -131,20 +142,9 @@ void	alternate_char_animation_down(t_game *game, int x, int y);
 void	render_door(t_game *game, int x, int y);
 void	render_wall_tile(t_game *game, int x, int y);
 void	render_collectible(t_game *game, int x, int y);
-void	print_number_of_movements();
+void	print_number_of_movements(void);
 char	**init_map(char **map);
 char	**read_map(char *argv);
 
 // map_validation_utils
-int	check_if_map_is_rectangular(char **map);
-int	count_rows(char **map);
-int	search_walls_horizontally(char **map);
-int	search_walls_vertically(char **map);
-int	map_is_surrounded_by_walls(char **map);
-int	search_exit(char **map);
-int	search_collectible(char **map);
-int	search_player(char **map);
-int	search_forbidden_character(char **map);
-int	only_one_player(char **map);
-int	only_one_exit(char **map);
 #endif

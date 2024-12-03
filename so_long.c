@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 19:14:21 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:42:25 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char *argv[])
 {
 	t_game	game;
 	char	**map;
+
 	map = NULL;
-	
 	map = parse_map(map, argc, argv);
 	game.map.current_map = map;
 	setup_game(&game);
