@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 01:54:05 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 19:53:29 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 # define WINDOW_WIDTH 1792
 # define WINDOW_HEIGHT 896
-# define WHITE_PIXEL 0xFFFFFF
 # define MLX_ERROR 1
 # define WALL_SIZE 32
 
@@ -122,6 +121,8 @@ int		check_collectibles(t_game *game);
 char	**read_map(char *argv);
 char	*join_strings(char const *s1, char const *s2);
 char	**parse_map(char **map, int argc, char **argv);
+void	execute_map_validations(char **map);
+int		check_if_map_file_is_ber(char *argv);
 
 //map_utils.c
 int		rows_of_map_exist(t_game *game, int row);
@@ -197,4 +198,7 @@ void	render_wall_tile(t_game *game, int x, int y);
 int		setup_screen(t_game *game);
 int		setup_game(t_game *game);
 
+//close_game.c
+int		close_game(t_game *game);
+void	free_character_frames(void *frames[2], void *mlx_ptr);
 #endif

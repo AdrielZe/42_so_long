@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:30:29 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 18:46:07 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:29:19 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	move_player_left(t_game *game, int row, int column)
 {
@@ -27,19 +27,19 @@ int	move_player_left(t_game *game, int row, int column)
 int	try_move_left(t_game *game, int row, int column)
 {
 	if (ft_strcmp(game->door.location,
-			"./resources/map/locked_exit_32.xpm") == 0)
+			"resources/map/locked_exit_32.xpm") == 0)
 	{
 		if (game->map.current_map[row][column - 1] != '1'
 				&& game->map.current_map[row + 1][column - 1] != '1'
 				&& game->map.current_map[row][column - 1] != 'E'
 				&& game->map.current_map[row + 1][column - 1] != 'E')
 			move_player_left(game, row, column);
-		return (0);
+		return (1);
 	}
 	if (game->map.current_map[row][column - 1] == 'E')
-		exit (1);
+		close_game(game);
 	else if (game->map.current_map[row + 1][column - 1] == 'E')
-		exit (1);
+		close_game(game);
 	if (game->map.current_map[row][column - 1] != '1'
 	&& game->map.current_map[row + 1][column - 1] != '1')
 		move_player_left(game, row, column);

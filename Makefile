@@ -6,24 +6,27 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/12/04 01:27:32 by asilveir         ###   ########.fr        #
+#    Updated: 2024/12/04 20:21:55 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = so_long.c setup_game.c handle_events.c process_inputs.c \
-	render_map.c render_character.c background_utils_1.c \
-	background_utils_2.c process_movements.c render_collectible.c \
-	render_door.c map_utils.c move_up.c move_down.c move_right.c \
-	move_left.c map_init.c map_validation_utils_1.c map_validation_utils_2.c \
-	map_validation_utils_3.c flood_fill_utils_1.c flood_fill_utils_2.c
+# Diretório src
+SRC_DIR = ./src
 
-OBJ = $(SRC:.c=.o)
+# Lista de arquivos fonte
+SRC = $(SRC_DIR)/so_long.c $(SRC_DIR)/setup_game.c $(SRC_DIR)/handle_events.c \
+	$(SRC_DIR)/process_inputs.c $(SRC_DIR)/render_map.c $(SRC_DIR)/render_character.c \
+	$(SRC_DIR)/background_utils_1.c $(SRC_DIR)/background_utils_2.c $(SRC_DIR)/process_movements.c \
+	$(SRC_DIR)/render_collectible.c $(SRC_DIR)/render_door.c $(SRC_DIR)/map_utils.c $(SRC_DIR)/move_up.c \
+	$(SRC_DIR)/move_down.c $(SRC_DIR)/move_right.c $(SRC_DIR)/move_left.c $(SRC_DIR)/map_init.c \
+	$(SRC_DIR)/map_validation_utils_1.c $(SRC_DIR)/map_validation_utils_2.c $(SRC_DIR)/map_validation_utils_3.c \
+	$(SRC_DIR)/flood_fill_utils_1.c $(SRC_DIR)/flood_fill_utils_2.c $(SRC_DIR)/close_game.c
 
 # Compilador e flags
 CC = clang
-# CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror -Ilibft
 
 # Diretórios da libft
 LIBFT_DIR = ./libft
@@ -36,20 +39,16 @@ LDFLAGS = -L$(LIBFT_DIR) -lft -lX11 -lXext -lmlx
 all: $(LIBFT) $(NAME)
 
 # Compilar o jogo
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) $(LIBFT) $(LDFLAGS) -o $(NAME)
+$(NAME): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(LDFLAGS) -o $(NAME)
 
 # Compilar a libft
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-# Compilar objetos
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 # Limpeza
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(NAME)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean

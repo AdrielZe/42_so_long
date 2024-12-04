@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 23:18:41 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/28 22:41:18 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:05:14 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 void	render_collectible(t_game *game, int x, int y)
 {

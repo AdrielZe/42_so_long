@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:28:05 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/28 22:10:52 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:06:52 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	rows_of_map_exist(t_game *game, int row_number)
 {

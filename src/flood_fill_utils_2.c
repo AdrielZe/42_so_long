@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:01:33 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 01:53:00 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:19:08 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 char	**copy_map(char **original)
 {
@@ -54,7 +54,7 @@ int	check_if_win_is_possible(char **map_copy)
 		{
 			if (map_copy[j][i] == 'C' || map_copy[j][i] == 'E')
 			{
-				printf("Error\nIt's impossible to win!");
+				write(1, "Error\nIt's impossible to win!", 29);
 				free_map(map_copy);
 				exit(EXIT_FAILURE);
 			}
@@ -74,7 +74,7 @@ int	search_flood_fill(t_game *game)
 	map_copy = copy_map(game->map.current_map);
 	if (!map_copy)
 	{
-		printf("Error\nFailed to allocate memory for map copy!");
+		write(1, "Error\nFailed to allocate memory for map copy!", 45);
 		exit(EXIT_FAILURE);
 	}
 	j = 0;

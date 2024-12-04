@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation_utils_3.c                           :+:      :+:    :+:   */
+/*   process_inputs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 21:22:00 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 18:45:50 by asilveir         ###   ########.fr       */
+/*   Created: 2024/11/19 15:20:56 by asilveir          #+#    #+#             */
+/*   Updated: 2024/12/04 20:40:35 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
-int	only_one_exit(char **map)
+int	g_number_of_movements = 0;
+
+int	handle_keypress(int keysym, t_game *game)
 {
-	int	i;
-	int	j;
-	int	number_of_exits;
-
-	j = 0;
-	number_of_exits = 0;
-	while (map[j])
+	if (keysym == XK_Escape)
 	{
-		i = 0;
-		while (map[j][i])
-		{
-			if (map[j][i] == 'E')
-				number_of_exits++;
-			i++;
-		}
-		j++;
-	}
-	if (number_of_exits > 1)
-	{
-		write(1, "Error\nMore than one exit found in the map", 41);
+		close_game(game);
 		exit(EXIT_FAILURE);
+	}
+	if (keysym == XK_a)
+	{
+		process_left_input(game);
+	}
+	if (keysym == XK_d)
+	{
+		process_right_input(game);
+	}
+	if (keysym == XK_w)
+	{
+		process_up_input(game);
+	}
+	if (keysym == XK_s)
+	{
+		process_down_input(game);
 	}
 	return (0);
 }

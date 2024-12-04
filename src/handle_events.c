@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:50:32 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 00:44:22 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:07:35 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	handle_no_event(void	*game)
 {

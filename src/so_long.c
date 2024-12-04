@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 00:48:10 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:04:29 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	main(int argc, char *argv[])
 {
@@ -26,14 +26,7 @@ int	main(int argc, char *argv[])
 	mlx_loop_hook(game.mlx_ptr, check_collectibles, &game);
 	mlx_hook(game.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &game);
 	mlx_loop(game.mlx_ptr);
+	close_game(&game);
 	free(map);
-	mlx_destroy_image(game.mlx_ptr, game.door.door_ptr);
-	mlx_destroy_image(game.mlx_ptr, game.collectible.collectible_ptr);
-	mlx_destroy_image(game.mlx_ptr, game.background.background_ptr);
-	mlx_destroy_image(game.mlx_ptr, game.character.character_ptr);
-	mlx_destroy_image(game.mlx_ptr, game.wall.wall_ptr);
-	mlx_destroy_image(game.mlx_ptr, game.img.mlx_img);
-	mlx_destroy_display(game.mlx_ptr);
-	free(game.mlx_ptr);
 	return (0);
 }

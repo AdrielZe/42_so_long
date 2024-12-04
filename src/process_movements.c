@@ -6,16 +6,16 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:50 by asilveir          #+#    #+#             */
-/*   Updated: 2024/11/29 01:01:03 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:12:27 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	door_is_locked(t_game *game)
 {
 	return (ft_strcmp(game->door.location,
-			"./resources/map/locked_door_48.xpm") == 0);
+			"resources/map/locked_door_48.xpm") == 0);
 }
 
 int	process_left_input(t_game *game)

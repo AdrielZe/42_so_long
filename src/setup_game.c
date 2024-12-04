@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:35:40 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/02 18:39:40 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:11:43 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	setup_screen(t_game *game)
 {
@@ -32,21 +32,21 @@ int	setup_game(t_game *game)
 {
 	setup_screen(game);
 	game->background.background_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/map/background_32.xpm",
+			"resources/map/background_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->wall.wall_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/map/grass_block_32.xpm",
+			"resources/map/grass_block_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->character.character_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/characters/character_to_right_60.xpm",
+			"resources/characters/character_to_right_60.xpm",
 			&game->wall.width, &game->wall.height);
 	game->collectible.collectible_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/map/collectible_32.xpm",
+			"resources/map/collectible_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->door.door_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"./resources/map/locked_exit_32.xpm",
+			"resources/map/locked_exit_32.xpm",
 			&game->wall.width, &game->wall.height);
-	game->door.location = "./resources/map/locked_exit_32.xpm";
+	game->door.location = "resources/map/locked_exit_32.xpm";
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);
 	if (!game->background.background_ptr

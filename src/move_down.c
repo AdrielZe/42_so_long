@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 22:11:45 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 18:47:18 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:29:14 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 void	print_number_of_movements(void)
 {
@@ -41,19 +41,19 @@ int	move_player_down(t_game *game, int row, int column)
 int	try_move_down(t_game *game, int row, int column)
 {
 	if (ft_strcmp(game->door.location,
-			"./resources/map/locked_exit_32.xpm") == 0)
+			"resources/map/locked_exit_32.xpm") == 0)
 	{
 		if (game->map.current_map[row + 2][column] != '1'
 			&& game->map.current_map[row + 2][column + 1] != '1'
 			&& game->map.current_map[row + 2][column] != 'E'
 			&& game->map.current_map[row + 2][column + 1] != 'E')
 			move_player_down(game, row, column);
-		return (0);
+		return (1);
 	}
 	if (game->map.current_map[row + 2][column] == 'E')
-		exit(1);
+		close_game(game);
 	else if (game->map.current_map[row + 2][column + 1] == 'E')
-		exit(1);
+		close_game(game);
 	if (game->map.current_map[row + 2][column] != '1'
 	&& game->map.current_map[row + 2][column + 1] != '1')
 		move_player_down(game, row, column);

@@ -6,12 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 00:54:07 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:22:43 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
-#include "string.h"
+#include "../headers/main.h"
 
 char	**read_map(char *argv)
 {
@@ -77,7 +76,8 @@ char	**parse_map(char **map, int argc, char **argv)
 		write(1, "Error\nMap file name is missing!\n", 32);
 		exit(EXIT_FAILURE);
 	}
-	path = join_strings("maps/", argv[1]);
+	check_if_map_file_is_ber(argv[1]);
+	path = join_strings("./maps/", argv[1]);
 	map = read_map(path);
 	free(path);
 	if (!map)
@@ -85,6 +85,40 @@ char	**parse_map(char **map, int argc, char **argv)
 		write(1, "Error\nFailure reading the map, file name is invalid!\n", 52);
 		exit(EXIT_FAILURE);
 	}
+	execute_map_validations(map);
+	return (map);
+}
+
+int	check_if_map_file_is_ber(char *argv)
+{
+	char	*file_type;
+	char	*file_type_expected;
+	int		i;
+	int		string_length;
+	int		j;
+
+	j = 0;
+	file_type_expected = ".ber";
+	if (!argv || ft_strlen(argv) == 0)
+		return (1);
+	string_length = ft_strlen(argv);
+	i = string_length - 4;
+	file_type = ft_substr(argv, i, 4);
+	if (file_type)
+	{
+		free(file_type);
+		return (1);
+	}
+	if (!ft_strnstr(file_type, file_type_expected, 4))
+	{
+		write(1, "Error!\nMap file is not \".ber\"", 27);
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
+
+void	execute_map_validations(char **map)
+{
 	check_if_map_is_rectangular(map);
 	map_is_surrounded_by_walls(map);
 	search_exit(map);
@@ -93,5 +127,4 @@ char	**parse_map(char **map, int argc, char **argv)
 	search_forbidden_character(map);
 	only_one_player(map);
 	only_one_exit(map);
-	return (map);
 }

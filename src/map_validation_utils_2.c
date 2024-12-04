@@ -6,11 +6,11 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:22:00 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 01:00:32 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:06:37 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/main.h"
+#include "../headers/main.h"
 
 int	search_exit(char **map)
 {
