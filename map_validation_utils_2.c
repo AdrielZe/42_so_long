@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:22:00 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/03 01:57:47 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 01:00:32 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ int	search_player(char **map)
 		while (map[j][i])
 		{
 			if (map[j][i] == 'P')
+			{
 				return (1);
+			}
 			i++;
 		}
 		j++;

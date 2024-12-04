@@ -6,18 +6,18 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/12/03 01:49:09 by asilveir         ###   ########.fr        #
+#    Updated: 2024/12/04 01:27:32 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRC = so_long.c setup_game.c handle_events.c process_inputs.c \
-	render_map.c render_character.c background_utils.c \
+	render_map.c render_character.c background_utils_1.c \
 	background_utils_2.c process_movements.c render_collectible.c \
 	render_door.c map_utils.c move_up.c move_down.c move_right.c \
 	move_left.c map_init.c map_validation_utils_1.c map_validation_utils_2.c \
-	map_validation_utils_3.c
+	map_validation_utils_3.c flood_fill_utils_1.c flood_fill_utils_2.c
 
 OBJ = $(SRC:.c=.o)
 
