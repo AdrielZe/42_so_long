@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:35:40 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:11:43 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 21:05:11 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	setup_game(t_game *game)
 			"resources/map/grass_block_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->character.character_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
-			"resources/characters/character_to_right_60.xpm",
+			"resources/characters/character_to_right_32.xpm",
 			&game->wall.width, &game->wall.height);
 	game->collectible.collectible_ptr = mlx_xpm_file_to_image(game->mlx_ptr,
 			"resources/map/collectible_32.xpm",

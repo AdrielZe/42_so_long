@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:44:33 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:14:04 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:57:10 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,13 @@ void	free_character_frames(void *frames[2], void *mlx_ptr)
 		mlx_destroy_image(mlx_ptr, frames[1]);
 		frames[1] = NULL;
 	}
+}
+
+int	close_game_when_x_is_clicked(void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	close_game(game);
+	return (0);
 }

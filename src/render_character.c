@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:48:48 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:31:55 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 21:37:38 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	alternate_char_animation_left(t_game *game, int x, int y)
 	if (!frames[0])
 	{
 		frames[0] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_left_60.xpm",
+				"resources/characters/character_to_left_32.xpm",
 				&game->wall.width, &game->wall.height);
 		frames[1] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_left_movement_1.xpm",
+				"resources/characters/character_to_left_movement_32.xpm",
 				&game->wall.width, &game->wall.height);
 		if (!frames[0] || !frames[1])
 		{
@@ -53,10 +53,10 @@ void	alternate_char_animation_right(t_game *game, int x, int y)
 	if (!frames[0])
 	{
 		frames[0] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_right_60.xpm",
+				"resources/characters/character_to_right_32.xpm",
 				&game->wall.width, &game->wall.height);
 		frames[1] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_right_movement_1.xpm",
+				"resources/characters/character_to_right_movement_32.xpm",
 				&game->wall.width, &game->wall.height);
 		if (!frames[0] || !frames[1])
 		{
@@ -79,10 +79,10 @@ void	alternate_char_animation_up(t_game *game, int x, int y)
 	if (!frames[0])
 	{
 		frames[0] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_up_60.xpm",
+				"resources/characters/character_to_up_32.xpm",
 				&game->wall.width, &game->wall.height);
 		frames[1] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_up_movement_1.xpm",
+				"resources/characters/character_to_up_movement_32.xpm",
 				&game->wall.width, &game->wall.height);
 		if (!frames[0] || !frames[1])
 		{
@@ -105,10 +105,10 @@ void	alternate_char_animation_down(t_game *game, int x, int y)
 	if (!frames[0])
 	{
 		frames[0] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_down_60.xpm",
+				"resources/characters/character_to_down_32.xpm",
 				&game->wall.width, &game->wall.height);
 		frames[1] = mlx_xpm_file_to_image(game->mlx_ptr,
-				"resources/characters/character_to_down_movement_1.xpm",
+				"resources/characters/character_to_down_movement_32.xpm",
 				&game->wall.width, &game->wall.height);
 		if (!frames[0] || !frames[1])
 		{

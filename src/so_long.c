@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:30:42 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:04:29 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:56:53 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char *argv[])
 	render(&game, map);
 	mlx_loop_hook(game.mlx_ptr, check_collectibles, &game);
 	mlx_hook(game.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &game);
+	mlx_hook(game.win_ptr, 17, 0, close_game_when_x_is_clicked, &game);
 	mlx_loop(game.mlx_ptr);
 	close_game(&game);
 	free(map);

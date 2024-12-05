@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 19:53:29 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:54:15 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,5 +200,6 @@ int		setup_game(t_game *game);
 
 //close_game.c
 int		close_game(t_game *game);
+int		close_game_when_x_is_clicked(void *param);
 void	free_character_frames(void *frames[2], void *mlx_ptr);
 #endif
