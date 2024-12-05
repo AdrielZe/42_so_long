@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
+#    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/12/05 00:45:36 by asilveir         ###   ########.fr        #
+#    Updated: 2024/12/05 18:10:23 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ BONUS_NAME = so_long_bonus
 # Diretórios
 SRC_DIR = ./src
 BONUS_DIR = ./bonus
+MANDATORY_HEADERS_DIR = $(SRC_DIR)/headers
+BONUS_HEADERS_DIR = $(BONUS_DIR)/headers
 
 # Arquivos de fonte mandatório
 SRC = $(SRC_DIR)/setup_game.c $(SRC_DIR)/handle_events.c \
@@ -31,8 +33,9 @@ SRC = $(SRC_DIR)/setup_game.c $(SRC_DIR)/handle_events.c \
 MANDATORY_MAIN = $(SRC_DIR)/so_long.c
 
 # Arquivos de fonte bônus
-BONUS = $(BONUS_DIR)/src/animate_character_bonus.c \
-	$(BONUS_DIR)/src/handle_events_bonus.c \
+BONUS = $(BONUS_DIR)/src/handle_events_bonus.c \
+	$(BONUS_DIR)/src/setup_animations_bonus.c \
+	$(BONUS_DIR)/src/process_inputs_bonus.c \
 
 
 # Main específica do bônus
@@ -40,7 +43,9 @@ BONUS_MAIN = $(BONUS_DIR)/src/so_long_bonus.c
 
 # Compilador e flags
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror
+MANDATORY_CFLAGS = $(CFLAGS) -I$(MANDATORY_HEADERS_DIR) -Ilibft
+BONUS_CFLAGS = $(CFLAGS) -I$(BONUS_HEADERS_DIR) -Ilibft
 
 # Diretórios da libft
 LIBFT_DIR = ./libft
@@ -53,13 +58,13 @@ LDFLAGS = -L$(LIBFT_DIR) -lft -lX11 -lXext -lmlx
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(SRC) $(MANDATORY_MAIN)
-	$(CC) $(CFLAGS) $(SRC) $(MANDATORY_MAIN) $(LIBFT) $(LDFLAGS) -o $(NAME)
+	$(CC) $(MANDATORY_CFLAGS) $(SRC) $(MANDATORY_MAIN) $(LIBFT) $(LDFLAGS) -o $(NAME)
 
 # Regra de bônus
 bonus: $(LIBFT) $(BONUS_NAME)
 
 $(BONUS_NAME): $(SRC) $(BONUS) $(BONUS_MAIN)
-	$(CC) $(CFLAGS) $(SRC) $(BONUS) $(BONUS_MAIN) $(LIBFT) $(LDFLAGS) -o $(BONUS_NAME)
+	$(CC) $(BONUS_CFLAGS) $(SRC) $(BONUS) $(BONUS_MAIN) $(LIBFT) $(LDFLAGS) -o $(BONUS_NAME)
 
 # Compilar a libft
 $(LIBFT):
@@ -81,4 +86,8 @@ re: fclean all
 valgrind: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) map1.ber
 
-.PHONY: all clean fclean re valgrind bonus
+# Testar com Valgrind (bônus)
+valgrind_bonus: $(BONUS_NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(BONUS_NAME) map1.ber
+
+.PHONY: all clean fclean re valgrind bonus valgrind_bonus
