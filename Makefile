@@ -6,16 +6,16 @@
 #    By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 20:16:54 by asilveir          #+#    #+#              #
-#    Updated: 2024/12/04 20:21:55 by asilveir         ###   ########.fr        #
+#    Updated: 2024/12/09 16:51:20 by asilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-# Diretório src
+# Src directory
 SRC_DIR = ./src
 
-# Lista de arquivos fonte
+# List of files
 SRC = $(SRC_DIR)/so_long.c $(SRC_DIR)/setup_game.c $(SRC_DIR)/handle_events.c \
 	$(SRC_DIR)/process_inputs.c $(SRC_DIR)/render_map.c $(SRC_DIR)/render_character.c \
 	$(SRC_DIR)/background_utils_1.c $(SRC_DIR)/background_utils_2.c $(SRC_DIR)/process_movements.c \
@@ -24,29 +24,29 @@ SRC = $(SRC_DIR)/so_long.c $(SRC_DIR)/setup_game.c $(SRC_DIR)/handle_events.c \
 	$(SRC_DIR)/map_validation_utils_1.c $(SRC_DIR)/map_validation_utils_2.c $(SRC_DIR)/map_validation_utils_3.c \
 	$(SRC_DIR)/flood_fill_utils_1.c $(SRC_DIR)/flood_fill_utils_2.c $(SRC_DIR)/close_game.c
 
-# Compilador e flags
+# Compilators and flags
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -Ilibft
 
-# Diretórios da libft
+# Libft directories
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Flags de linkagem
+# Link flags
 LDFLAGS = -L$(LIBFT_DIR) -lft -lX11 -lXext -lmlx
 
-# Regra principal
+# Main rule
 all: $(LIBFT) $(NAME)
 
-# Compilar o jogo
+# Compile the game
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(LDFLAGS) -o $(NAME)
 
-# Compilar a libft
+# Compile Libft
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-# Limpeza
+# Cleaning
 clean:
 	rm -rf $(NAME)
 	make clean -C $(LIBFT_DIR)
@@ -55,11 +55,7 @@ fclean: clean
 	rm -rf $(NAME)
 	make fclean -C $(LIBFT_DIR)
 
-# Reconstruir tudo
+# Rebuild
 re: fclean all
 
-# Testar com Valgrind
-valgrind: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) map1.ber
-
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re

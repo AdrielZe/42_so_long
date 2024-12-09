@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:02:51 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:22:43 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:30:48 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	**read_map(char *argv)
 		return (NULL);
 	i = 0;
 	line = get_next_line(fd);
+	if (!line)
+		return (NULL);
 	while (line != NULL)
 	{
 		map[i] = line;
@@ -104,16 +106,17 @@ int	check_if_map_file_is_ber(char *argv)
 	string_length = ft_strlen(argv);
 	i = string_length - 4;
 	file_type = ft_substr(argv, i, 4);
-	if (file_type)
+	if (!file_type)
 	{
 		free(file_type);
 		return (1);
 	}
 	if (!ft_strnstr(file_type, file_type_expected, 4))
 	{
-		write(1, "Error!\nMap file is not \".ber\"", 27);
+		write(1, "Error!\nMap file is not \".ber\"", 29);
 		exit(EXIT_FAILURE);
 	}
+	free(file_type);
 	return (0);
 }
 

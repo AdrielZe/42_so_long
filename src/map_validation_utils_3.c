@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:22:00 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:06:27 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:20:38 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	only_one_exit(char **map)
 	if (number_of_exits > 1)
 	{
 		write(1, "Error\nMore than one exit found in the map", 41);
+		free_map(map);
 		exit(EXIT_FAILURE);
 	}
 	return (0);

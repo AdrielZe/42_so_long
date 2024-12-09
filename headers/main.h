@@ -6,18 +6,18 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:51:19 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:54:15 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:06:13 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-# include <stdlib.h>
+// # include <stdlib.h>
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include <stdio.h>
+// # include <stdio.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
 

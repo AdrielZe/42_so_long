@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:05:36 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:34:32 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:19:47 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	check_if_map_is_rectangular(char **map)
 		if ((int)ft_strlen(map[j]) != row_length)
 		{
 			write(1, "Error\nMap is not rectangular!\n", 30);
+			free_map(map);
 			exit(EXIT_FAILURE);
 		}
 		j++;
@@ -106,6 +107,7 @@ int	map_is_surrounded_by_walls(char **map)
 		|| search_walls_vertically(map) == 1)
 	{
 		write(1, "Error!\nMap is not surrounded by walls!\n", 39);
+		free_map(map);
 		exit(EXIT_FAILURE);
 	}
 	return (0);

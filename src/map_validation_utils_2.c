@@ -6,7 +6,7 @@
 /*   By: asilveir <asilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:22:00 by asilveir          #+#    #+#             */
-/*   Updated: 2024/12/04 20:06:37 by asilveir         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:20:28 by asilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	search_exit(char **map)
 		j++;
 	}
 	write(1, "Error\nThere are no exits in the map.\n", 37);
+	free_map(map);
 	exit(EXIT_FAILURE);
 	return (0);
 }
@@ -52,6 +53,7 @@ int	search_collectible(char **map)
 		j++;
 	}
 	write(1, "Error\nThere are no collectibles in the map.\n", 44);
+	free_map(map);
 	exit(EXIT_FAILURE);
 	return (0);
 }
@@ -76,6 +78,7 @@ int	search_player(char **map)
 		j++;
 	}
 	write(1, "Error\nPlayer is not in the map.\n", 32);
+	free_map(map);
 	exit(EXIT_FAILURE);
 	return (0);
 }
@@ -96,6 +99,7 @@ int	search_forbidden_character(char **map)
 				map[j][i] != 'P' && map[j][i] != '\n')
 			{
 				write(1, "Error\nForbidden character found!", 32);
+				free_map(map);
 				exit(EXIT_FAILURE);
 				return (1);
 			}
@@ -128,6 +132,7 @@ int	only_one_player(char **map)
 	if (number_of_players > 1)
 	{
 		write(1, "Error\nMore than one player found in the map", 43);
+		free_map(map);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
