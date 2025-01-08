@@ -4,6 +4,7 @@
 
 **So Long** is a project from 42 that aims to develop a small 2D game using the **MinilibX** library. The game is based on a simple mechanic: the player must control a character to collect items, avoid enemies (if any), and reach the exit of a map while ensuring all rules and functionalities comply with the required specifications.
 
+![THE GAME](game.gif)
 ---
 
 ## Project Objectives
